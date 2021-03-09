@@ -13,9 +13,9 @@ cupons.
 ## Instruções para a instalação do projeto:
 
 1. Clone o repositório
-  * `git clone `.
+  * `git clone git@github.com:hleoc/Projeto-Trocbeer.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd `
+    * `cd Projeto-Trocbeer`
 
 2. Instale as dependências
   * `npm install`
