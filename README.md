@@ -78,11 +78,20 @@ O projeto deve rodar na porta 3000, podendo ser acessado em http://localhost/300
 - Foram cobertos alguns recursos do código com testes unitários com Jest
 
 
+### Tecnologias utilizadas
+
+- VSCode
+- JavaScript
+- NodeJS
+- MongoDB
+- Postman
+- Git/Github
+
 ### Melhorias Futuras
 
-- Adicionar dados sensíveis ao arquivo de ambiente(.env).
+- Adicionar dados sensíveis ao arquivo de ambiente(.env)
 - Front-end e back-end desacoplado
-- Criação de cupons que sejam válidos apenas para certas categorias ou marcas.
+- Criação de cupons que sejam válidos apenas para certas categorias ou marcas
 - Carrinho de compras
 - Application build / pipeline
 - Distribuições para DEV e PROD

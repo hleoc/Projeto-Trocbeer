@@ -2,9 +2,13 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+const usersController = require('./Controllers/usersController');
+
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use('/users', usersController);
 
 const PORT = 3000;
 app.listen(PORT, () => {
