@@ -24,7 +24,7 @@ cupons.
   * `mongo`
 
 4. Em uma aba do terminal rode o servidor do NodeJs
-  * `node index.js`
+  * `node index.js ou dev`
 
 5. Em outra aba do terminal renderize a aplicação do front-end
   * `npm start`
