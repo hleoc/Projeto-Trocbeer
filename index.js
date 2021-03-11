@@ -8,6 +8,8 @@ const loginController = require('./Controllers/loginController');
 
 const productsController = require('./Controllers/productsController');
 
+const cuponsController = require('./Controllers/cuponsController');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -17,6 +19,8 @@ app.use('/users', usersController);
 app.use('/login', loginController);
 
 app.use('/products', productsController);
+
+app.use('/cupons', cuponsController);
 
 const PORT = 3000;
 app.listen(PORT, () => {
