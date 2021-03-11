@@ -9,8 +9,7 @@ module.exports = async (req, res, next) => {
     const token = req.headers.authorization;
     if (!token) return res.status(401).json({ message: 'missing auth token' });
     const payload = jwt.verify(token, secret);
-    const user = await User.getByEmail(payload.userData);
-
+    /* const user = await User.getByEmail(payload.userData);
     if (!user) {
       return {
         error: true,
@@ -19,7 +18,7 @@ module.exports = async (req, res, next) => {
         statusCode: 400,
       };
     }
-    req.user = payload.userData;
+    req.user = payload.userData; */
 
     return next();
   } catch (error) {
