@@ -4,17 +4,18 @@ const getCollection = require('./get-connection');
 
 const create = async (name, quantity, price) =>
   getCollection('products')
-    .then((product) => product.insertOne({ name, quantity, price }))
-    .then((result) => ({ _id: result.insertedId, name, quantity, price }));
+    .then((product) => product.insertOne({ name, quantity, price, totalPrice: (quantity*price) }))
+    .then(({ops}) => ops[0]);
+    //.then(console.log());
 
 const getAll = async () => getCollection('products').then((product) => product.find().toArray());
 
-const update = async (id, name, quantity, price) => {
+const update = async (id, name, quantity, price, totalPrice) => {
   if (!ObjectId.isValid(id)) return null;
   getCollection('products').then((product) =>
-    product.updateOne({ _id: ObjectId(id) }, { $set: { name, quantity, price } }),
+    product.updateOne({ _id: ObjectId(id) }, { $set: { name, quantity, price, totalPrice: (quantity*price) } }),
   );
-  return { _id: id, name, quantity, price };
+  return { _id: id, name, quantity, price, totalPrice};
 };
 
 const exclude = async (id) => {

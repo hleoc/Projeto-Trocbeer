@@ -10,7 +10,7 @@ const create = async (name, quantity, price) => {
     };
   }
   
-  return model.create(name, quantity, price);
+  return model.create(name, parseInt(quantity), parseFloat(price));
 };
 
 const getAll = async () => model.getAll();
