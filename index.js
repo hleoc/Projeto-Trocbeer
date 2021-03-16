@@ -1,6 +1,8 @@
 const express = require('express');
 
-const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const path = require('path');
 
 const usersController = require('./Controllers/usersController');
 
@@ -12,7 +14,9 @@ const cuponsController = require('./Controllers/cuponsController');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(cors());
+
+app.use(express.json());
 
 app.use('/users', usersController);
 
@@ -22,7 +26,9 @@ app.use('/products', productsController);
 
 app.use('/cupons', cuponsController);
 
-const PORT = 3000;
+app.use('/images', express.static(path.join(__dirname, '.', 'images')));
+
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`A Troc está ON na porta ${PORT}`);
 });

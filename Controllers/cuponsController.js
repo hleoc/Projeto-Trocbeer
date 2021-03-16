@@ -30,7 +30,7 @@ cupons.get('/', auth, async (_req, res) => {
   }
 });
 
-cupons.get('/:id', auth, async (req, res) => {
+cupons.get('/:id', async (req, res) => {
   try {
     const { id } = req.params; 
     const oneCupom = await service.getById(id);

@@ -28,6 +28,20 @@ users.get('/', async (_req, res) => {
   }
 });
 
+users.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const oneUser = await service.getById(id);
+    if (oneUser.error) {
+      return res.status(oneUser.statusCode).json({ message: oneUser.message });
+    }
+    return res.status(200).json(oneUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Algo deu errado.' });
+  }
+});
+
 users.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;

@@ -12,6 +12,11 @@ const create = async (name, email, password, role = 'admin') =>
 
 const getAll = async () => getCollection('users').then((user) => user.find().toArray());
 
+const getById = async (id) => {
+  if (!ObjectId.isValid(id)) return null;
+  return getCollection('users').then((user) => user.findOne({ _id: ObjectId(id) }));
+};
+
 const update = async (id, name, email, role) => {
   if (!ObjectId.isValid(id)) return null;
   getCollection('users').then((user) =>
@@ -29,6 +34,7 @@ module.exports = {
   getByEmail,
   create,
   getAll,
+  getById,
   update,
   exclude,
 };

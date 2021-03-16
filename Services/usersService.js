@@ -15,7 +15,7 @@ const create = async (name, email, password) => {
     };
   }
   
-  const emailExists = await model.getByEmail({ email });
+  const emailExists = await model.getByEmail({ email: email.toLowerCase() });
   if (emailExists) {
     return {
       error: true,
@@ -34,19 +34,32 @@ const create = async (name, email, password) => {
       statusCode: 400,
     };
   }
-  return model.create(name, email, password);
+  return model.create(name, email.toLowerCase(), password);
 };
 
 const getAll = async () => model.getAll();
 
-const update = async (id, name, email, role) => model.update(id, name, email, role);
+const getById = async (id) => {
+  const user = await model.getById(id);
+  if (!user) {
+    return {
+      error: true,
+      code: 'invalid_data',
+      message: 'recipe not found',
+      statusCode: 404,
+    };
+  }
+  return user;
+};
+
+const update = async (id, name, email, role) => model.update(id, name, email.toLowerCase(), role);
 
 const remove = async (id) => model.exclude(id);
-
 
 module.exports = {
   create,
   getAll,
+  getById,
   update,
   remove,
 };
