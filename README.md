@@ -14,21 +14,18 @@ cupons.
 
 1. Crie uma pasta para onde o projeto será clonado
 
-2. Entre na pasta criada
-  * `Tanto o repositório de back quanto o de front estarão na mesma pasta`
-
-3. Clone o repositório
+2. Clone o repositório
   * `git clone git@github.com:hleoc/Projeto-Trocbeer.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd Projeto-Trocbeer`
 
-4. Instale as dependências
+3. Instale as dependências
   * `npm install`
 
-5. Start o banco de dados mongoDB
+4. Start o banco de dados mongoDB
   * `mongo`
 
-6. Em uma aba do terminal rode o servidor do NodeJs
+5. Em uma aba do terminal rode o servidor do NodeJs
   * `node index.js ou npm run dev`
 
 
@@ -83,8 +80,15 @@ O projeto deve rodar na porta 3001 no back-end e na porta 3000 no front-end.
 ### Requisitos realizados
 
 - Front-end e back-end desacoplados
-
-
+- Página para fazer Login
+- Carrinho de compras(Detail)
+- Campo para aplicação de um cupom de desconto
+- Admin:
+  - CRUD de usuários no admin(back-end)
+  - CRUD de cupons (back-end)
+  - Cupom com valor fixo (back-end)
+  - Cupom com valor percentual (back-end)
+  - CRUD de produtos (back-end)
 
 
 ### Tecnologias utilizadas
